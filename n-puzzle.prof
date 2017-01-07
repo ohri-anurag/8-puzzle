@@ -1,0 +1,357 @@
+	Sun Dec 25 14:37 2016 Time and Allocation Profiling Report  (Final)
+
+	   n-puzzle +RTS -p -RTS
+
+	total time  =        1.93 secs   (1929 ticks @ 1000 us, 1 processor)
+	total alloc = 2,342,902,072 bytes  (excludes profiling overheads)
+
+COST CENTRE                MODULE                   %time %alloc
+
+contains                   TreeSetBalanced           23.7    0.0
+>>=                        Data.Vector.Fusion.Util   14.2   26.2
+move.board'                BoardOptimized             9.1    7.1
+uidLocal                   BoardOptimized             5.3    8.0
+insert                     TreeSetBalanced            4.6    0.0
+insert.l'                  TreeSetBalanced            4.1    9.2
+merge                      MinPQ                      3.6    4.8
+insert.r'                  TreeSetBalanced            3.6    7.5
+swap                       MinPQ                      2.4    0.6
+diff                       BoardOptimized             2.2    2.5
+move                       BoardOptimized             2.2    2.7
+manhattanLocal             BoardOptimized             1.9    6.0
+manhattanLocal.\           BoardOptimized             1.8    0.8
+uidLocal.\                 BoardOptimized             1.6    2.2
+manhattanLocal.sz          BoardOptimized             1.4    1.2
+basicUnsafeIndexM          Data.Vector                1.3    3.2
+astar.astarHelper.nextList AStar                      1.3    0.8
+neighbors.sz               BoardOptimized             1.2    1.1
+diff.nj                    BoardOptimized             1.2    0.8
+diff.oi                    BoardOptimized             1.0    0.8
+basicUnsafeNew             Data.Vector.Mutable        0.9    2.9
+basicUnsafeFreeze          Data.Vector                0.8    2.0
+astar.astarHelper          AStar                      0.7    1.2
+astar.astarHelper.nodeList AStar                      0.4    1.4
+
+
+                                                                                         individual      inherited
+COST CENTRE                        MODULE                            no.      entries  %time %alloc   %time %alloc
+
+MAIN                               MAIN                               668          0    0.0    0.0   100.0  100.0
+ main                              Main                              1337          0    0.0    0.0     0.0    0.0
+  display                          BoardOptimized                    1641         32    0.0    0.0     0.0    0.0
+   display.sz                      BoardOptimized                    1646         32    0.0    0.0     0.0    0.0
+    basicLength                    Data.Vector                       1648         32    0.0    0.0     0.0    0.0
+    unId                           Data.Vector.Fusion.Util           1647         32    0.0    0.0     0.0    0.0
+   display.helper                  BoardOptimized                    1645        128    0.0    0.0     0.0    0.0
+   basicUnsafeIndexM               Data.Vector                       1644        288    0.0    0.0     0.0    0.0
+   unId                            Data.Vector.Fusion.Util           1643        320    0.0    0.0     0.0    0.0
+   basicLength                     Data.Vector                       1642         32    0.0    0.0     0.0    0.0
+ CAF:main1                         Main                              1334          0    0.0    0.0     0.0    0.0
+  main                             Main                              1336          1    0.0    0.0     0.0    0.0
+ CAF:main2                         Main                              1333          0    0.0    0.0   100.0  100.0
+  main                             Main                              1338          0    0.0    0.0   100.0  100.0
+   astar                           AStar                             1339          1    0.1    0.0   100.0  100.0
+    astar.astarHelper              AStar                             1343     134924    0.7    1.2    99.9  100.0
+     astar.astarHelper.pq'         AStar                             1592     134922    0.0    0.0     0.0    0.0
+     astar.astarHelper.tree'       AStar                             1572     134922    0.5    0.1    13.3   17.6
+      astar.astarHelper.tree'.\    AStar                             1573     153619    0.4    0.7    12.8   17.4
+       uid                         BoardOptimized                    1575     153619    0.1    0.0     0.1    0.0
+       insert                      TreeSetBalanced                   1574    5670540    4.6    0.0    12.3   16.7
+        insert.r'                  TreeSetBalanced                   1599    2474262    3.6    7.5     3.6    7.5
+        insert.l'                  TreeSetBalanced                   1583    3042659    4.1    9.2     4.1    9.2
+     astar.astarHelper.(...)       AStar                             1438     134923    0.7    0.4     8.0    6.4
+      insert                       MinPQ                             1452     153619    0.2    0.4     3.4    3.1
+       merge                       MinPQ                             1453     550124    1.7    2.5     3.3    2.7
+        swap                       MinPQ                             1528     396505    1.0    0.2     1.6    0.2
+         size                      MinPQ                             1564     609930    0.0    0.0     0.0    0.0
+         /=                        MinPQ                             1530     396505    0.1    0.0     0.2    0.0
+          ==                       MinPQ                             1531     396505    0.1    0.0     0.1    0.0
+         ==                        MinPQ                             1529     396505    0.3    0.0     0.3    0.0
+        compare                    AStar                             1527     396505    0.0    0.0     0.0    0.0
+      delMin                       MinPQ                             1439     134923    0.1    0.1     3.9    2.9
+       merge                       MinPQ                             1593     509259    1.9    2.4     3.8    2.7
+        swap                       MinPQ                             1595     374337    1.3    0.4     1.9    0.4
+         size                      MinPQ                             1624     639066    0.0    0.0     0.0    0.0
+         /=                        MinPQ                             1597     374337    0.1    0.0     0.3    0.0
+          ==                       MinPQ                             1598     374337    0.2    0.0     0.2    0.0
+         ==                        MinPQ                             1596     374337    0.3    0.0     0.3    0.0
+        compare                    AStar                             1594     374337    0.0    0.0     0.0    0.0
+     astar.astarHelper.nextList    AStar                             1425     134923    1.3    0.8    76.3   73.3
+      astar.astarHelper.nextList.\ AStar                             1435     359806    0.4    0.5    24.2    0.5
+       uid                         BoardOptimized                    1591     359803    0.0    0.0     0.0    0.0
+       contains                    TreeSetBalanced                   1436   13104491   23.7    0.0    23.7    0.0
+      neighbors                    BoardOptimized                    1427     134923    0.5    1.0    50.8   72.0
+       neighbors.\                 BoardOptimized                    1431     539692    0.7    0.0    49.0   69.8
+        right                      BoardOptimized                    1447     134923    0.3    0.1    11.4   16.6
+         move                      BoardOptimized                    1449     134923    0.8    0.7    11.1   16.5
+          uidLocal                 BoardOptimized                    1576      88532    1.4    2.0     3.1    4.1
+           >>=                     Data.Vector.Fusion.Util           1581    1682108    1.2    1.1     1.5    1.6
+            uidLocal.\             BoardOptimized                    1582     796788    0.3    0.5     0.3    0.5
+           basicUnsafeIndexM       Data.Vector                       1580     796788    0.2    0.5     0.2    0.5
+           basicLength             Data.Vector                       1579      88532    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1578      88532    0.0    0.0     0.0    0.0
+           unId                    Data.Vector.Fusion.Util           1577      88532    0.0    0.0     0.0    0.0
+          manhattanLocal           BoardOptimized                    1476      35429    0.2    1.4     4.1    8.3
+           manhattanLocal.sz       BoardOptimized                    1481      35429    0.3    0.3     0.3    0.3
+            basicLength            Data.Vector                       1483      35429    0.0    0.0     0.0    0.0
+            unId                   Data.Vector.Fusion.Util           1482      35429    0.0    0.0     0.0    0.0
+           >>=                     Data.Vector.Fusion.Util           1480    1984024    1.8    5.0     3.7    6.6
+            manhattanLocal.\       BoardOptimized                    1485     318861    0.3    0.2     1.9    1.4
+             diff                  BoardOptimized                    1490     283432    0.7    0.6     1.6    1.2
+              diff.oj              BoardOptimized                    1494     283432    0.1    0.0     0.1    0.0
+              diff.nj              BoardOptimized                    1493     283432    0.3    0.2     0.3    0.2
+              diff.oi              BoardOptimized                    1492     283432    0.3    0.2     0.3    0.2
+              diff.ni              BoardOptimized                    1491     283432    0.3    0.2     0.3    0.2
+            basicUnsafeIndexM      Data.Vector                       1484     318861    0.1    0.2     0.1    0.2
+           basicLength             Data.Vector                       1479      35429    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1478      35429    0.0    0.0     0.0    0.0
+           unId                    Data.Vector.Fusion.Util           1477      35429    0.0    0.0     0.0    0.0
+          move.zp'                 BoardOptimized                    1470      88532    0.1    0.0     0.1    0.1
+           right.\                 BoardOptimized                    1471      88532    0.0    0.1     0.0    0.1
+          move.board'              BoardOptimized                    1457      88532    2.1    1.8     2.9    3.3
+           basicUnsafeIndexM       Data.Vector                       1486     177064    0.1    0.0     0.1    0.0
+           basicUnsafeFreeze       Data.Vector                       1474      88532    0.3    0.5     0.3    0.5
+            primitive              Control.Monad.Primitive           1475      88532    0.0    0.0     0.0    0.0
+           basicUnsafeWrite        Data.Vector.Mutable               1468     177064    0.2    0.0     0.2    0.0
+            primitive              Control.Monad.Primitive           1469     177064    0.1    0.0     0.1    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1467      88532    0.0    0.0     0.0    0.0
+           basicLength             Data.Vector.Mutable               1466      88532    0.0    0.0     0.0    0.0
+           basicUnsafeCopy         Data.Vector                       1464      88532    0.1    0.2     0.1    0.2
+            primitive              Control.Monad.Primitive           1465      88532    0.0    0.0     0.0    0.0
+           basicInitialize         Data.Vector.Mutable               1463      88532    0.0    0.0     0.0    0.0
+           basicUnsafeNew          Data.Vector.Mutable               1461      88532    0.1    0.7     0.1    0.7
+            primitive              Control.Monad.Primitive           1462      88532    0.0    0.0     0.0    0.0
+           basicLength             Data.Vector                       1459     265596    0.0    0.2     0.0    0.2
+           unId                    Data.Vector.Fusion.Util           1458     708256    0.0    0.0     0.0    0.0
+          right.\                  BoardOptimized                    1450     134923    0.1    0.0     0.1    0.0
+        left                       BoardOptimized                    1444     134923    0.1    0.1    10.9   17.6
+         move                      BoardOptimized                    1445     134923    0.4    0.7    10.8   17.5
+          uidLocal                 BoardOptimized                    1565      90545    1.0    2.0     2.6    4.2
+           >>=                     Data.Vector.Fusion.Util           1570    1720355    0.9    1.1     1.4    1.7
+            uidLocal.\             BoardOptimized                    1571     814905    0.5    0.6     0.5    0.6
+           basicUnsafeIndexM       Data.Vector                       1569     814905    0.2    0.6     0.2    0.6
+           basicLength             Data.Vector                       1568      90545    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1567      90545    0.0    0.0     0.0    0.0
+           unId                    Data.Vector.Fusion.Util           1566      90545    0.0    0.0     0.0    0.0
+          manhattanLocal           BoardOptimized                    1511      38932    0.4    1.5     5.6    9.1
+           manhattanLocal.sz       BoardOptimized                    1516      38932    0.3    0.3     0.3    0.3
+            basicLength            Data.Vector                       1518      38932    0.0    0.0     0.0    0.0
+            unId                   Data.Vector.Fusion.Util           1517      38932    0.0    0.0     0.0    0.0
+           >>=                     Data.Vector.Fusion.Util           1515    2180192    2.9    5.5     4.9    7.2
+            manhattanLocal.\       BoardOptimized                    1520     350388    0.5    0.2     2.0    1.5
+             diff                  BoardOptimized                    1522     311456    0.6    0.6     1.5    1.3
+              diff.oj              BoardOptimized                    1526     311456    0.1    0.0     0.1    0.0
+              diff.nj              BoardOptimized                    1525     311456    0.3    0.2     0.3    0.2
+              diff.oi              BoardOptimized                    1524     311456    0.4    0.2     0.4    0.2
+              diff.ni              BoardOptimized                    1523     311456    0.3    0.2     0.3    0.2
+            basicUnsafeIndexM      Data.Vector                       1519     350388    0.1    0.2     0.1    0.2
+           basicLength             Data.Vector                       1514      38932    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1513      38932    0.0    0.0     0.0    0.0
+           unId                    Data.Vector.Fusion.Util           1512      38932    0.0    0.0     0.0    0.0
+          move.zp'                 BoardOptimized                    1507      90545    0.1    0.0     0.1    0.1
+           left.\                  BoardOptimized                    1508      90545    0.0    0.1     0.0    0.1
+          move.board'              BoardOptimized                    1495      90545    1.2    1.8     2.2    3.4
+           basicUnsafeIndexM       Data.Vector                       1521     181090    0.2    0.0     0.2    0.0
+           basicUnsafeFreeze       Data.Vector                       1509      90545    0.2    0.5     0.2    0.5
+            primitive              Control.Monad.Primitive           1510      90545    0.0    0.0     0.0    0.0
+           basicUnsafeWrite        Data.Vector.Mutable               1505     181090    0.2    0.0     0.2    0.0
+            primitive              Control.Monad.Primitive           1506     181090    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1504      90545    0.0    0.0     0.0    0.0
+           basicLength             Data.Vector.Mutable               1503      90545    0.0    0.0     0.0    0.0
+           basicUnsafeCopy         Data.Vector                       1501      90545    0.1    0.2     0.1    0.2
+            primitive              Control.Monad.Primitive           1502      90545    0.0    0.0     0.0    0.0
+           basicInitialize         Data.Vector.Mutable               1500      90545    0.0    0.0     0.0    0.0
+           basicUnsafeNew          Data.Vector.Mutable               1498      90545    0.4    0.7     0.4    0.7
+            primitive              Control.Monad.Primitive           1499      90545    0.0    0.0     0.0    0.0
+           basicLength             Data.Vector                       1497     271635    0.1    0.2     0.1    0.2
+           unId                    Data.Vector.Fusion.Util           1496     724360    0.0    0.0     0.0    0.0
+          left.\                   BoardOptimized                    1446     134923    0.0    0.0     0.0    0.0
+        down                       BoardOptimized                    1440     134923    0.2    0.2    13.2   17.8
+         move                      BoardOptimized                    1442     134923    0.6    0.7    13.0   17.6
+          manhattanLocal           BoardOptimized                    1625      39522    0.7    1.6     6.1    9.2
+           manhattanLocal.sz       BoardOptimized                    1630      39522    0.6    0.3     0.6    0.3
+            basicLength            Data.Vector                       1632      39522    0.0    0.0     0.0    0.0
+            unId                   Data.Vector.Fusion.Util           1631      39522    0.0    0.0     0.0    0.0
+           >>=                     Data.Vector.Fusion.Util           1629    2213232    3.1    5.6     4.7    7.4
+            manhattanLocal.\       BoardOptimized                    1634     355698    0.4    0.2     1.6    1.5
+             diff                  BoardOptimized                    1635     316176    0.5    0.6     1.2    1.3
+              diff.oj              BoardOptimized                    1639     316176    0.1    0.0     0.1    0.0
+              diff.nj              BoardOptimized                    1638     316176    0.3    0.2     0.3    0.2
+              diff.oi              BoardOptimized                    1637     316176    0.1    0.2     0.1    0.2
+              diff.ni              BoardOptimized                    1636     316176    0.2    0.2     0.2    0.2
+            basicUnsafeIndexM      Data.Vector                       1633     355698    0.1    0.2     0.1    0.2
+           basicLength             Data.Vector                       1628      39522    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1627      39522    0.0    0.0     0.0    0.0
+           unId                    Data.Vector.Fusion.Util           1626      39522    0.0    0.0     0.0    0.0
+          uidLocal                 BoardOptimized                    1616      90267    1.3    2.0     3.0    4.2
+           >>=                     Data.Vector.Fusion.Util           1621    1715073    0.9    1.1     1.6    1.7
+            uidLocal.\             BoardOptimized                    1622     812403    0.6    0.6     0.6    0.6
+           basicUnsafeIndexM       Data.Vector                       1620     812403    0.1    0.6     0.1    0.6
+           basicLength             Data.Vector                       1619      90267    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1618      90267    0.0    0.0     0.0    0.0
+           unId                    Data.Vector.Fusion.Util           1617      90267    0.0    0.0     0.0    0.0
+          move.zp'                 BoardOptimized                    1612      90267    0.0    0.0     0.0    0.1
+           down.\                  BoardOptimized                    1613      90267    0.0    0.1     0.0    0.1
+          move.board'              BoardOptimized                    1600      90267    2.5    1.8     3.3    3.4
+           basicUnsafeIndexM       Data.Vector                       1623     180534    0.1    0.0     0.1    0.0
+           basicUnsafeFreeze       Data.Vector                       1614      90267    0.1    0.5     0.1    0.5
+            primitive              Control.Monad.Primitive           1615      90267    0.0    0.0     0.0    0.0
+           basicUnsafeWrite        Data.Vector.Mutable               1610     180534    0.1    0.0     0.2    0.0
+            primitive              Control.Monad.Primitive           1611     180534    0.1    0.0     0.1    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1609      90267    0.0    0.0     0.0    0.0
+           basicLength             Data.Vector.Mutable               1608      90267    0.0    0.0     0.0    0.0
+           basicUnsafeCopy         Data.Vector                       1606      90267    0.3    0.2     0.3    0.2
+            primitive              Control.Monad.Primitive           1607      90267    0.0    0.0     0.0    0.0
+           basicInitialize         Data.Vector.Mutable               1605      90267    0.0    0.0     0.0    0.0
+           basicUnsafeNew          Data.Vector.Mutable               1603      90267    0.2    0.7     0.2    0.7
+            primitive              Control.Monad.Primitive           1604      90267    0.0    0.0     0.0    0.0
+           basicLength             Data.Vector                       1602     270801    0.0    0.2     0.0    0.2
+           unId                    Data.Vector.Fusion.Util           1601     722136    0.0    0.0     0.0    0.0
+          down.\                   BoardOptimized                    1443     134923    0.1    0.0     0.1    0.0
+        up                         BoardOptimized                    1432     134923    0.0    0.2    12.8   17.8
+         move                      BoardOptimized                    1433     134923    0.4    0.7    12.8   17.7
+          uidLocal                 BoardOptimized                    1584      90462    1.6    2.0     2.9    4.2
+           >>=                     Data.Vector.Fusion.Util           1589    1718778    1.0    1.1     1.2    1.7
+            uidLocal.\             BoardOptimized                    1590     814158    0.2    0.6     0.2    0.6
+           basicUnsafeIndexM       Data.Vector                       1588     814158    0.2    0.6     0.2    0.6
+           basicLength             Data.Vector                       1587      90462    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1586      90462    0.0    0.0     0.0    0.0
+           unId                    Data.Vector.Fusion.Util           1585      90462    0.0    0.0     0.0    0.0
+          manhattanLocal           BoardOptimized                    1548      39736    0.6    1.6     5.1    9.3
+           manhattanLocal.sz       BoardOptimized                    1553      39736    0.2    0.3     0.2    0.3
+            basicLength            Data.Vector                       1555      39736    0.0    0.0     0.0    0.0
+            unId                   Data.Vector.Fusion.Util           1554      39736    0.0    0.0     0.0    0.0
+           >>=                     Data.Vector.Fusion.Util           1552    2225216    2.3    5.6     4.3    7.4
+            manhattanLocal.\       BoardOptimized                    1557     357624    0.7    0.2     1.9    1.5
+             diff                  BoardOptimized                    1559     317888    0.4    0.7     1.2    1.3
+              diff.oj              BoardOptimized                    1563     317888    0.0    0.0     0.0    0.0
+              diff.nj              BoardOptimized                    1562     317888    0.3    0.2     0.3    0.2
+              diff.oi              BoardOptimized                    1561     317888    0.3    0.2     0.3    0.2
+              diff.ni              BoardOptimized                    1560     317888    0.2    0.2     0.2    0.2
+            basicUnsafeIndexM      Data.Vector                       1556     357624    0.1    0.2     0.1    0.2
+           basicLength             Data.Vector                       1551      39736    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1550      39736    0.0    0.0     0.0    0.0
+           unId                    Data.Vector.Fusion.Util           1549      39736    0.0    0.0     0.0    0.0
+          move.zp'                 BoardOptimized                    1544      90462    0.1    0.0     0.1    0.1
+           up.\                    BoardOptimized                    1545      90462    0.1    0.1     0.1    0.1
+          move.board'              BoardOptimized                    1532      90462    3.4    1.8     4.3    3.4
+           basicUnsafeIndexM       Data.Vector                       1558     180924    0.2    0.0     0.2    0.0
+           basicUnsafeFreeze       Data.Vector                       1546      90462    0.3    0.5     0.3    0.5
+            primitive              Control.Monad.Primitive           1547      90462    0.0    0.0     0.0    0.0
+           basicUnsafeWrite        Data.Vector.Mutable               1542     180924    0.0    0.0     0.0    0.0
+            primitive              Control.Monad.Primitive           1543     180924    0.0    0.0     0.0    0.0
+           sElems                  Data.Vector.Fusion.Bundle.Monadic 1541      90462    0.0    0.0     0.0    0.0
+           basicLength             Data.Vector.Mutable               1540      90462    0.0    0.0     0.0    0.0
+           basicUnsafeCopy         Data.Vector                       1538      90462    0.2    0.2     0.2    0.2
+            primitive              Control.Monad.Primitive           1539      90462    0.0    0.0     0.0    0.0
+           basicInitialize         Data.Vector.Mutable               1537      90462    0.0    0.0     0.0    0.0
+           basicUnsafeNew          Data.Vector.Mutable               1535      90462    0.3    0.7     0.3    0.7
+            primitive              Control.Monad.Primitive           1536      90462    0.0    0.0     0.0    0.0
+           basicLength             Data.Vector                       1534     271386    0.0    0.2     0.0    0.2
+           unId                    Data.Vector.Fusion.Util           1533     723696    0.0    0.0     0.0    0.0
+          up.\                     BoardOptimized                    1434     134923    0.0    0.0     0.0    0.0
+       neighbors.sz                BoardOptimized                    1428     134923    1.2    1.1     1.2    1.2
+        basicLength                Data.Vector                       1430     134923    0.0    0.1     0.0    0.1
+        unId                       Data.Vector.Fusion.Util           1429     134923    0.0    0.0     0.0    0.0
+      val                          AStar                             1426     134923    0.0    0.0     0.0    0.0
+     astar.astarHelper.nodeList    AStar                             1424     134923    0.4    1.4     0.7    1.6
+      astar.astarHelper.nodeList.\ AStar                             1454     153619    0.3    0.1     0.4    0.1
+       manhattan                   BoardOptimized                    1456     153619    0.1    0.0     0.1    0.0
+       g                           AStar                             1455     153619    0.0    0.0     0.0    0.0
+     astar.astarHelper.node'       AStar                             1423     134923    0.2    0.0     0.2    0.0
+     val                           AStar                             1346     134924    0.3    0.0     0.3    0.0
+     ==                            BoardOptimized                    1344     134924    0.5    0.0     0.5    0.0
+      uid                          BoardOptimized                    1345     269848    0.0    0.0     0.0    0.0
+    listNodes                      AStar                             1340          1    0.0    0.0     0.0    0.0
+     listNodes.helper              AStar                             1341         33    0.0    0.0     0.0    0.0
+      val                          AStar                             1640         32    0.0    0.0     0.0    0.0
+      parent                       AStar                             1342         32    0.0    0.0     0.0    0.0
+ CAF:main3                         Main                              1332          0    0.0    0.0     0.0    0.0
+  main                             Main                              1389          0    0.0    0.0     0.0    0.0
+   fromList                        BoardOptimized                    1390          1    0.0    0.0     0.0    0.0
+    uidLocal                       BoardOptimized                    1416          1    0.0    0.0     0.0    0.0
+     >>=                           Data.Vector.Fusion.Util           1421         19    0.0    0.0     0.0    0.0
+      uidLocal.\                   BoardOptimized                    1422          9    0.0    0.0     0.0    0.0
+     basicUnsafeIndexM             Data.Vector                       1420          9    0.0    0.0     0.0    0.0
+     basicLength                   Data.Vector                       1419          1    0.0    0.0     0.0    0.0
+     sElems                        Data.Vector.Fusion.Bundle.Monadic 1418          1    0.0    0.0     0.0    0.0
+     unId                          Data.Vector.Fusion.Util           1417          1    0.0    0.0     0.0    0.0
+    fromList.b'                    BoardOptimized                    1391          1    0.0    0.0     0.0    0.0
+     basicUnsafeFreeze             Data.Vector                       1414          1    0.0    0.0     0.0    0.0
+      primitive                    Control.Monad.Primitive           1415          1    0.0    0.0     0.0    0.0
+     basicUnsafeSlice              Data.Vector.Mutable               1412         10    0.0    0.0     0.0    0.0
+     basicUnsafeGrow               Data.Vector.Generic.Mutable.Base  1403          5    0.0    0.0     0.0    0.0
+      basicUnsafeCopy              Data.Vector.Mutable               1409          5    0.0    0.0     0.0    0.0
+       primitive                   Control.Monad.Primitive           1410          5    0.0    0.0     0.0    0.0
+      basicUnsafeSlice             Data.Vector.Mutable               1408          5    0.0    0.0     0.0    0.0
+      basicUnsafeGrow.n            Data.Vector.Generic.Mutable.Base  1405          5    0.0    0.0     0.0    0.0
+       basicLength                 Data.Vector.Mutable               1406          5    0.0    0.0     0.0    0.0
+      basicUnsafeNew               Data.Vector.Mutable               1404          5    0.0    0.0     0.0    0.0
+       primitive                   Control.Monad.Primitive           1407          5    0.0    0.0     0.0    0.0
+     enlarge_delta                 Data.Vector.Generic.Mutable       1401          5    0.0    0.0     0.0    0.0
+      basicLength                  Data.Vector.Mutable               1402          5    0.0    0.0     0.0    0.0
+     basicLength                   Data.Vector.Mutable               1400         14    0.0    0.0     0.0    0.0
+     >>=                           Data.Vector.Fusion.Util           1398         10    0.0    0.0     0.0    0.0
+      fmap                         Data.Vector.Fusion.Stream.Monadic 1399         10    0.0    0.0     0.0    0.0
+       basicUnsafeWrite            Data.Vector.Mutable               1411          9    0.0    0.0     0.0    0.0
+     unId                          Data.Vector.Fusion.Util           1397         10    0.0    0.0     0.0    0.0
+     sChunks                       Data.Vector.Fusion.Bundle.Monadic 1396          1    0.0    0.0     0.0    0.0
+     basicUnsafeNew                Data.Vector.Mutable               1394          1    0.0    0.0     0.0    0.0
+      primitive                    Control.Monad.Primitive           1395          1    0.0    0.0     0.0    0.0
+     sSize                         Data.Vector.Fusion.Bundle.Monadic 1393          1    0.0    0.0     0.0    0.0
+     upperBound                    Data.Vector.Fusion.Bundle.Size    1392          1    0.0    0.0     0.0    0.0
+ CAF:main22                        Main                              1331          0    0.0    0.0     0.0    0.0
+  main                             Main                              1347          0    0.0    0.0     0.0    0.0
+   fromList                        BoardOptimized                    1348          1    0.0    0.0     0.0    0.0
+    uidLocal                       BoardOptimized                    1380          1    0.0    0.0     0.0    0.0
+     >>=                           Data.Vector.Fusion.Util           1386         19    0.0    0.0     0.0    0.0
+      uidLocal.\                   BoardOptimized                    1387          9    0.0    0.0     0.0    0.0
+     basicUnsafeIndexM             Data.Vector                       1384          9    0.0    0.0     0.0    0.0
+     basicLength                   Data.Vector                       1383          1    0.0    0.0     0.0    0.0
+     sElems                        Data.Vector.Fusion.Bundle.Monadic 1382          1    0.0    0.0     0.0    0.0
+     unId                          Data.Vector.Fusion.Util           1381          1    0.0    0.0     0.0    0.0
+    fromList.b'                    BoardOptimized                    1349          1    0.0    0.0     0.0    0.0
+     basicUnsafeFreeze             Data.Vector                       1378          1    0.0    0.0     0.0    0.0
+      primitive                    Control.Monad.Primitive           1379          1    0.0    0.0     0.0    0.0
+     basicUnsafeSlice              Data.Vector.Mutable               1373         10    0.0    0.0     0.0    0.0
+     basicUnsafeGrow               Data.Vector.Generic.Mutable.Base  1363          5    0.0    0.0     0.0    0.0
+      basicUnsafeCopy              Data.Vector.Mutable               1369          5    0.0    0.0     0.0    0.0
+       primitive                   Control.Monad.Primitive           1370          5    0.0    0.0     0.0    0.0
+      basicUnsafeSlice             Data.Vector.Mutable               1368          5    0.0    0.0     0.0    0.0
+      basicUnsafeGrow.n            Data.Vector.Generic.Mutable.Base  1365          5    0.0    0.0     0.0    0.0
+       basicLength                 Data.Vector.Mutable               1366          5    0.0    0.0     0.0    0.0
+      basicUnsafeNew               Data.Vector.Mutable               1364          5    0.0    0.0     0.0    0.0
+       primitive                   Control.Monad.Primitive           1367          5    0.0    0.0     0.0    0.0
+     enlarge_delta                 Data.Vector.Generic.Mutable       1361          5    0.0    0.0     0.0    0.0
+      basicLength                  Data.Vector.Mutable               1362          5    0.0    0.0     0.0    0.0
+     basicLength                   Data.Vector.Mutable               1360         14    0.0    0.0     0.0    0.0
+     >>=                           Data.Vector.Fusion.Util           1357         10    0.0    0.0     0.0    0.0
+      fmap                         Data.Vector.Fusion.Stream.Monadic 1359         10    0.0    0.0     0.0    0.0
+       basicUnsafeWrite            Data.Vector.Mutable               1372          9    0.0    0.0     0.0    0.0
+     unId                          Data.Vector.Fusion.Util           1356         10    0.0    0.0     0.0    0.0
+     sChunks                       Data.Vector.Fusion.Bundle.Monadic 1355          1    0.0    0.0     0.0    0.0
+     basicUnsafeNew                Data.Vector.Mutable               1353          1    0.0    0.0     0.0    0.0
+      primitive                    Control.Monad.Primitive           1354          1    0.0    0.0     0.0    0.0
+     sSize                         Data.Vector.Fusion.Bundle.Monadic 1351          1    0.0    0.0     0.0    0.0
+     upperBound                    Data.Vector.Fusion.Bundle.Size    1350          1    0.0    0.0     0.0    0.0
+ CAF:empty                         MinPQ                             1299          0    0.0    0.0     0.0    0.0
+  empty                            MinPQ                             1451          1    0.0    0.0     0.0    0.0
+ CAF:empty                         TreeSetBalanced                   1286          0    0.0    0.0     0.0    0.0
+  empty                            TreeSetBalanced                   1437          1    0.0    0.0     0.0    0.0
+ CAF:doInternalChecks              Data.Vector.Internal.Check        1275          0    0.0    0.0     0.0    0.0
+  doInternalChecks                 Data.Vector.Internal.Check        1371          1    0.0    0.0     0.0    0.0
+ CAF:doUnsafeChecks                Data.Vector.Internal.Check        1274          0    0.0    0.0     0.0    0.0
+  doUnsafeChecks                   Data.Vector.Internal.Check        1352          1    0.0    0.0     0.0    0.0
+ CAF:doBoundsChecks                Data.Vector.Internal.Check        1273          0    0.0    0.0     0.0    0.0
+  doBoundsChecks                   Data.Vector.Internal.Check        1460          1    0.0    0.0     0.0    0.0
+ CAF:$fMonadBox_$creturn           Data.Vector.Fusion.Util           1272          0    0.0    0.0     0.0    0.0
+  return                           Data.Vector.Fusion.Util           1385          1    0.0    0.0     0.0    0.0
+ CAF:$fMonadId1                    Data.Vector.Fusion.Util           1269          0    0.0    0.0     0.0    0.0
+  return                           Data.Vector.Fusion.Util           1358          1    0.0    0.0     0.0    0.0
+ CAF:$fPrimMonadST1_r962           Control.Monad.Primitive            741          0    0.0    0.0     0.0    0.0
+  primitive                        Control.Monad.Primitive           1374          1    0.0    0.0     0.0    0.0
+ CAF                               GHC.IO.Encoding                    708          0    0.0    0.0     0.0    0.0
+ CAF                               GHC.IO.Handle.FD                   707          0    0.0    0.0     0.0    0.0
+ CAF                               GHC.Conc.Signal                    702          0    0.0    0.0     0.0    0.0
+ CAF                               GHC.IO.Handle.Text                 699          0    0.0    0.0     0.0    0.0
+ CAF                               GHC.IO.Encoding.Iconv              690          0    0.0    0.0     0.0    0.0
